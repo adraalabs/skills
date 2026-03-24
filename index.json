@@ -48,13 +48,13 @@
   },
   {
     "name": "counting-game",
-    "description": "Counting channel game — users count up, bot detects wrong numbers and resets. Use when asked for counting game, counting channel, or number game.",
+    "description": "Counting channel game — users count up one by one, wrong numbers reset to 1. Use when asked for counting game, counting channel, or number game.",
     "category": "fun",
     "platforms": [
       "discord",
       "telegram"
     ],
-    "version": 1,
+    "version": 3,
     "author": "adraalabs",
     "path": "counting-game/skill.md"
   },
