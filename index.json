@@ -1,5 +1,17 @@
 [
   {
+    "name": "afk-system",
+    "description": "AFK status system — set an away message, bot notifies when someone mentions you. Use when asked for AFK, away status, or do not disturb.",
+    "category": "utility",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "afk-system/skill.md"
+  },
+  {
     "name": "auto-roles",
     "description": "Automatically assign roles on join, or let users pick roles via reaction/button menus. Use when asked for auto-role, self-assign roles, reaction roles, or role menu.",
     "category": "community",
@@ -21,6 +33,42 @@
     "version": 1,
     "author": "adraalabs",
     "path": "birthday/skill.md"
+  },
+  {
+    "name": "confessions",
+    "description": "Anonymous confession system — users submit via DM or modal, bot posts anonymously with a unique number. Use when asked for confessions, anonymous posting, or secrets channel.",
+    "category": "fun",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "confessions/skill.md"
+  },
+  {
+    "name": "counting-game",
+    "description": "Counting channel game — users count up, bot detects wrong numbers and resets. Use when asked for counting game, counting channel, or number game.",
+    "category": "fun",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "counting-game/skill.md"
+  },
+  {
+    "name": "custom-status",
+    "description": "Custom user status/bio system — users set a profile bio, mood, and social links displayed via /profile. Use when asked for user profiles, bio, status, or about me.",
+    "category": "community",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "custom-status/skill.md"
   },
   {
     "name": "economy",
@@ -47,6 +95,17 @@
     "path": "giveaway/skill.md"
   },
   {
+    "name": "highlights",
+    "description": "Keyword notification system — users subscribe to words, get DM'd when someone says them. Like Discord's built-in highlights but better. Use when asked for highlights, keyword alerts, or mention notifications.",
+    "category": "utility",
+    "platforms": [
+      "discord"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "highlights/skill.md"
+  },
+  {
     "name": "invite-tracker",
     "description": "Track who invited whom, invite counts, and invite leaderboard. Use when asked for invite tracking, invite rewards, or who invited a member.",
     "category": "community",
@@ -68,6 +127,30 @@
     "version": 2,
     "author": "adraalabs",
     "path": "leveling/skill.md"
+  },
+  {
+    "name": "moderation-suite",
+    "description": "Full moderation system — warnings with auto-punish, mod logs, mute/ban history, and appeal system. Use when asked for moderation, warnings, mod log, or punishment system.",
+    "category": "moderation",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "moderation-suite/skill.md"
+  },
+  {
+    "name": "music-queue",
+    "description": "Song request queue with voting, now-playing display, and skip voting. Not actual audio playback — manages the queue and display. Use when asked for music queue, song requests, DJ queue, or listening party.",
+    "category": "fun",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "music-queue/skill.md"
   },
   {
     "name": "polls",
@@ -93,6 +176,29 @@
     "path": "starboard/skill.md"
   },
   {
+    "name": "suggestion-box",
+    "description": "Suggestion system with upvote/downvote buttons, status tracking, and admin review. Use when asked for suggestions, feedback, or idea voting.",
+    "category": "community",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "suggestion-box/skill.md"
+  },
+  {
+    "name": "temp-voice",
+    "description": "Temporary voice channels — join a \"Create\" channel, bot creates a private voice channel for you, auto-deletes when empty. Like VoiceMaster. Use when asked for temp voice, voice master, or dynamic voice channels.",
+    "category": "community",
+    "platforms": [
+      "discord"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "temp-voice/skill.md"
+  },
+  {
     "name": "ticket-system",
     "description": "Support ticket system with private channels, modal forms, and close button. Use when asked for tickets, support system, or help desk.",
     "category": "moderation",
@@ -105,6 +211,18 @@
     "path": "ticket-system/skill.md"
   },
   {
+    "name": "verification",
+    "description": "Member verification gate — new members must click a button or solve a captcha to get access. Prevents raids and bots. Use when asked for verification, captcha, gate, or anti-raid.",
+    "category": "moderation",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "verification/skill.md"
+  },
+  {
     "name": "welcome",
     "description": "Welcome messages for new members with auto-role and goodbye messages. Use when asked for welcome system, greet new members, or member join messages.",
     "category": "community",
@@ -115,5 +233,17 @@
     "version": 2,
     "author": "adraalabs",
     "path": "welcome/skill.md"
+  },
+  {
+    "name": "word-chain",
+    "description": "Word chain game — each message must start with the last letter of the previous word. Use when asked for word chain, word game, or shiritori.",
+    "category": "fun",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "word-chain/skill.md"
   }
 ]
