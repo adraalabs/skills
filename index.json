@@ -1,0 +1,119 @@
+[
+  {
+    "name": "auto-roles",
+    "description": "Automatically assign roles on join, or let users pick roles via reaction/button menus. Use when asked for auto-role, self-assign roles, reaction roles, or role menu.",
+    "category": "community",
+    "platforms": [
+      "discord"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "auto-roles/skill.md"
+  },
+  {
+    "name": "birthday",
+    "description": "Birthday tracking with announcements on the special day. Use when asked for birthday system, birthday reminders, or birthday roles.",
+    "category": "community",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "birthday/skill.md"
+  },
+  {
+    "name": "economy",
+    "description": "Coins economy with balance, pay, daily rewards, and leaderboard. Use when asked for economy, coins, currency, or money system.",
+    "category": "economy",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 2,
+    "author": "adraalabs",
+    "path": "economy/skill.md"
+  },
+  {
+    "name": "giveaway",
+    "description": "Timed giveaways with reaction entries, live entry count, and winner selection. Use when asked to set up a giveaway, raffle, or prize drawing.",
+    "category": "engagement",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 3,
+    "author": "adraalabs",
+    "path": "giveaway/skill.md"
+  },
+  {
+    "name": "invite-tracker",
+    "description": "Track who invited whom, invite counts, and invite leaderboard. Use when asked for invite tracking, invite rewards, or who invited a member.",
+    "category": "community",
+    "platforms": [
+      "discord"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "invite-tracker/skill.md"
+  },
+  {
+    "name": "leveling",
+    "description": "XP per message, levels, rank cards with image, and leaderboard. Use when asked for leveling, XP, ranking, or experience system.",
+    "category": "engagement",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 2,
+    "author": "adraalabs",
+    "path": "leveling/skill.md"
+  },
+  {
+    "name": "polls",
+    "description": "Custom polls with buttons, live vote counts, and duplicate vote prevention. Use when asked for polls, voting, or surveys.",
+    "category": "engagement",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "polls/skill.md"
+  },
+  {
+    "name": "starboard",
+    "description": "Pin popular messages to a starboard channel when they reach a reaction threshold. Use when asked for starboard, best-of, or highlight channel.",
+    "category": "engagement",
+    "platforms": [
+      "discord"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "starboard/skill.md"
+  },
+  {
+    "name": "ticket-system",
+    "description": "Support ticket system with private channels, modal forms, and close button. Use when asked for tickets, support system, or help desk.",
+    "category": "moderation",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 2,
+    "author": "adraalabs",
+    "path": "ticket-system/skill.md"
+  },
+  {
+    "name": "welcome",
+    "description": "Welcome messages for new members with auto-role and goodbye messages. Use when asked for welcome system, greet new members, or member join messages.",
+    "category": "community",
+    "platforms": [
+      "discord",
+      "telegram"
+    ],
+    "version": 2,
+    "author": "adraalabs",
+    "path": "welcome/skill.md"
+  }
+]

@@ -1,0 +1,52 @@
+name: Build Index
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate index.json
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const index = [];
+          for (const dir of fs.readdirSync('.').filter(f => fs.statSync(f).isDirectory() && !f.startsWith('.'))) {
+            const skillPath = path.join(dir, 'skill.md');
+            if (!fs.existsSync(skillPath)) continue;
+            const md = fs.readFileSync(skillPath, 'utf8');
+            const match = md.match(/^---\n([\s\S]*?)\n---/);
+            if (!match) continue;
+            const fm = {};
+            for (const line of match[1].split('\n')) {
+              const idx = line.indexOf(':');
+              if (idx > 0) fm[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
+            }
+            index.push({
+              name: fm.name || dir,
+              description: fm.description || '',
+              category: fm.category || 'general',
+              platforms: (fm.platforms || '[discord]').replace(/[\[\]]/g, '').split(',').map(p => p.trim()),
+              version: parseInt(fm.version) || 1,
+              author: fm.author || 'community',
+              path: dir + '/skill.md',
+            });
+          }
+          fs.writeFileSync('index.json', JSON.stringify(index, null, 2));
+          console.log('Generated index.json with ' + index.length + ' skills');
+          "
+
+      - name: Commit index.json
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git diff --cached --quiet || git commit -m "chore: auto-generate index.json [skip ci]" && git push
