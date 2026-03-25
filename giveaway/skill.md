@@ -2,7 +2,7 @@
 name: giveaway
 description: Timed giveaways with reaction entries, live entry count, end time, and winner selection. Use when asked to set up a giveaway, raffle, or prize drawing.
 category: engagement
-version: 5
+version: 6
 platforms: [discord, telegram]
 author: adraalabs
 ---
@@ -20,8 +20,13 @@ The command steps:
    - color: "#FFD700"
    - footer: "Giveaway #{counter_value}"
    - name: "msg" (to get {msg_message_id})
-3. `store_data` key:"giveaway:{msg_message_id}" value:{prize, host_id:{caller_id}, host_name:{caller_name}, winners}
+3. `store_data` key:"giveaway:{msg_message_id}" value:{prize, host_id:{caller_id}, host_name:{caller_name}, winners, channel_id:{channel_id}}
 4. `add_reaction` 🎉 to {msg_message_id}
+5. `schedule_one_shot` name:"end_giveaway_{msg_message_id}" delay_seconds:"{math:duration * 60}" actions:[
+   {type:"list_data", prefix:"giveaway_entry:{msg_message_id}:", name:"entries"},
+   {type:"send_message", channel_id:"{channel_id}", message:"🎉 **Giveaway ended!**\n\nPrize: **{prize}**\n{entries_count} entries\n\nWinners picked from reactions — use `pick_random_reactor`!"},
+   {type:"edit_message", channel_id:"{channel_id}", message_id:"{msg_message_id}", embed:{fields:[{name:"Entries", value:"{entries_count}", inline:true}, {name:"Status", value:"ENDED", inline:true}]}}
+   ]
 
 ## Trigger: giveaway_entry
 
@@ -51,3 +56,6 @@ Example: `<t:{math:timestamp + duration * 60}:R>` computes the end time directly
 - **{incremented_value}** only available after increment_data in the same chain
 - Use `store_data` with `if_not_exists:true` for entries to prevent double-counting
 - Duration option should default to 10 if not provided
+- **Auto-end**: `schedule_one_shot` creates a one-time cron trigger that fires after the duration. delay_seconds accepts {math:duration * 60}.
+- The scheduled trigger uses actions (trigger actions, NOT executor tools) — list_data, send_message, edit_message
+- Max delay: 7 days (604800 seconds)
