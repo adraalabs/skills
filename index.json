@@ -1,14 +1,5 @@
 [
   {
-    "name": "anti-spam",
-    "description": "Full anti-spam system — new member verification (captcha button), flood control, link blocking, media restriction. Replicates @GroupHelpBot/@MissRose_bot anti-spam. Use when asked for anti-spam, captcha, flood control, or raid protection.",
-    "category": "moderation",
-    "platforms": ["telegram"],
-    "version": 1,
-    "author": "adraalabs",
-    "path": "anti-spam/skill.md"
-  },
-  {
     "name": "afk-system",
     "description": "AFK status system — set an away message, bot notifies when someone mentions you. Use when asked for AFK, away status, or do not disturb.",
     "category": "utility",
@@ -19,6 +10,17 @@
     "version": 1,
     "author": "adraalabs",
     "path": "afk-system/skill.md"
+  },
+  {
+    "name": "anti-spam",
+    "description": "Full anti-spam system — new member verification (captcha button), flood control, link blocking, media restriction for new members. Replicates @GroupHelpBot/@MissRose_bot anti-spam. Use when asked for anti-spam, captcha, verification, flood control, or raid protection.",
+    "category": "moderation",
+    "platforms": [
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "anti-spam/skill.md"
   },
   {
     "name": "auto-roles",
@@ -45,9 +47,11 @@
   },
   {
     "name": "chat-locks",
-    "description": "Chat lock system — lock/unlock media, links, stickers, polls for entire group. Replicates @MissRose_bot /lock and /unlock. Use when asked for chat locks, lock media, lock links, or lockdown.",
+    "description": "Chat lock system — lock/unlock media, links, stickers, polls, or all messages for the entire group. Replicates @MissRose_bot /lock and /unlock commands. Use when asked for chat locks, restrict chat, lock media, lock links, or lockdown.",
     "category": "moderation",
-    "platforms": ["telegram"],
+    "platforms": [
+      "telegram"
+    ],
     "version": 1,
     "author": "adraalabs",
     "path": "chat-locks/skill.md"
@@ -159,15 +163,6 @@
     "path": "moderation-suite/skill.md"
   },
   {
-    "name": "notes-system",
-    "description": "Saved replies/notes — admins save text snippets, anyone retrieves by name or #shortcut. Replicates @MissRose_bot /save, /get, /notes. Use when asked for notes, saved replies, FAQ, or quick responses.",
-    "category": "utility",
-    "platforms": ["telegram"],
-    "version": 1,
-    "author": "adraalabs",
-    "path": "notes-system/skill.md"
-  },
-  {
     "name": "music-queue",
     "description": "Song request queue with voting, now-playing display, and skip voting. Not actual audio playback — manages the queue and display. Use when asked for music queue, song requests, DJ queue, or listening party.",
     "category": "fun",
@@ -180,8 +175,19 @@
     "path": "music-queue/skill.md"
   },
   {
+    "name": "notes-system",
+    "description": "Saved replies/notes system — admins save text snippets, anyone can retrieve them. Replicates @MissRose_bot /save, /get, /notes. Use when asked for notes, saved replies, FAQ, or quick responses.",
+    "category": "utility",
+    "platforms": [
+      "telegram"
+    ],
+    "version": 1,
+    "author": "adraalabs",
+    "path": "notes-system/skill.md"
+  },
+  {
     "name": "polls",
-    "description": "Custom polls with buttons, live vote counts, and duplicate vote prevention. For Telegram: uses native sendPoll API. Use when asked for polls, voting, or surveys.",
+    "description": "Custom polls with buttons, live vote counts, and duplicate vote prevention. Use when asked for polls, voting, or surveys.",
     "category": "engagement",
     "platforms": [
       "discord",
@@ -193,9 +199,11 @@
   },
   {
     "name": "reporting",
-    "description": "User reporting system — members report rule-breaking messages to admins with evidence and auto-action thresholds. Replicates @MissRose_bot /report. Use when asked for report system or moderation alerts.",
+    "description": "User reporting system — members can report rule-breaking messages to admins. Replicates @MissRose_bot /report. Use when asked for report system, report to admins, or moderation alerts.",
     "category": "moderation",
-    "platforms": ["telegram"],
+    "platforms": [
+      "telegram"
+    ],
     "version": 1,
     "author": "adraalabs",
     "path": "reporting/skill.md"
