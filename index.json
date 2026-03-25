@@ -84,13 +84,13 @@
   },
   {
     "name": "giveaway",
-    "description": "Timed giveaways with reaction entries, live entry count, and winner selection. Use when asked to set up a giveaway, raffle, or prize drawing.",
+    "description": "Timed giveaways with reaction entries, live entry count, end time, and winner selection. Use when asked to set up a giveaway, raffle, or prize drawing.",
     "category": "engagement",
     "platforms": [
       "discord",
       "telegram"
     ],
-    "version": 3,
+    "version": 4,
     "author": "adraalabs",
     "path": "giveaway/skill.md"
   },
