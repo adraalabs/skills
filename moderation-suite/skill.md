@@ -12,8 +12,8 @@ author: adraalabs
 ### /warn
 Options: user (user, required), reason (string, required)
 Steps:
-1. `increment_data` key:"warns:{target_id}" name:"w"
-2. `store_data` key:"warn_log:{target_id}:{timestamp}" value:"{reason} — by {caller_name}"
+1. `increment` key:"warns:{target_id}" name:"w"
+2. `put` key:"warn_log:{target_id}:{timestamp}" value:"{reason} — by {caller_name}"
 3. `send_message` to mod-log channel: embed with title:"Warning", description:"{target} warned by {caller}\nReason: {reason}\nTotal: {w_value}"
 
 Auto-punish thresholds (add as conditional steps):
@@ -23,19 +23,19 @@ Use step.if:"w_value >= 3" and step.if:"w_value >= 5"
 
 ### /warnings
 Options: user (user)
-Tool: `get_data` key:"warns:{target_id}"
+Tool: `get` key:"warns:{target_id}"
 Template: "{target_name} has {value || 0} warnings"
 
 ### /clearwarns
 Options: user (user, required)
 Steps:
-1. `delete_data` key:"warns:{target_id}"
-2. `delete_data_by_prefix` prefix:"warn_log:{target_id}:"
+1. `delete` key:"warns:{target_id}"
+2. `delete_by_prefix` prefix:"warn_log:{target_id}:"
 Template: "Cleared all warnings for {target}"
 
 ### /modlog
 Options: user (user)
-Tool: `list_data` prefix:"warn_log:{target_id}:" sort:"desc" per_page:10
+Tool: `list` prefix:"warn_log:{target_id}:" sort:"desc" per_page:10
 Embed: title:"{target_name}'s Mod Log", description:"{entries}"
 
 ## Trigger: mod_log_actions
@@ -49,4 +49,4 @@ Action: `send_message` to mod-log channel with embed
 - Store individual warn reasons with timestamp keys for history
 - Auto-punish uses conditional steps — check warn count AFTER incrementing
 - {w_value} is the NEW count after increment (includes the current warn)
-- delete_data_by_prefix cleans up all individual warn logs
+- delete_by_prefix cleans up all individual warn logs

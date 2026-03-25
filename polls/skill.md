@@ -14,7 +14,7 @@ Create `/poll` with options: question (string, required), option1-option4 (strin
 The command:
 1. Build buttons from the provided options, each with unique ID like "poll_{random}_opt1"
 2. `send_interactive` with embed: title=question, description lists options, color="#5865F2"
-3. For each button, `store_data` key:"interaction:poll_{id}_optN" value:{unique_per_user:true, steps:[{tool:"increment_data", args:{key:"poll_vote:{message_id}:optN"}}, ...], update_source:{description with updated counts}}
+3. For each button, `put` key:"interaction:poll_{id}_optN" value:{unique_per_user:true, steps:[{tool:"increment_data", args:{key:"poll_vote:{message_id}:optN"}}, ...], update_source:{description with updated counts}}
 
 ## Key patterns
 

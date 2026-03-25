@@ -12,7 +12,7 @@ author: adraalabs
 Config:
 - modal: {title:"Anonymous Confession", fields:[{id:"confession", label:"Your confession", style:"paragraph", placeholder:"This stays completely anonymous..."}]}
 - steps:
-  1. `increment_data` key:"confession_counter" name:"num"
+  1. `increment` key:"confession_counter" name:"num"
   2. `send_message` to confessions channel: embed:{title:"Confession #{num_value}", description:"{confession}", color:"#2F3136", footer:"Anonymous"}
 - response: "Your confession has been posted anonymously!"
 - ephemeral: true

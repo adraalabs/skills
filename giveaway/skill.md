@@ -12,15 +12,15 @@ author: adraalabs
 Create `/giveaway` with options: prize (string, required), duration (integer, minutes, default 10), winners (integer, default 1).
 
 The command steps:
-1. `increment_data` key:"giveaway_counter" name:"counter"
+1. `increment` key:"giveaway_counter" name:"counter"
 2. `send_message` to current channel with embed:
    - title: "{prize}"
-   - description: "React with 🎉 to enter!\n\nHosted by: {caller}"
-   - fields: [{name:"Entries", value:"0", inline:true}, {name:"Host", value:"{caller_name}", inline:true}, {name:"Ends", value:"<t:{math:timestamp + duration * 60}:R>", inline:true}]
+   - description: "React with 🎉 to enter!"
+   - fields: [{name:"Entries", value:"0", inline:true}, {name:"Host", value:"{caller}", inline:true}, {name:"Ends", value:"<t:{math:timestamp + duration * 60}:R>", inline:true}]
    - color: "#FFD700"
    - footer: "Giveaway #{counter_value}"
    - name: "msg" (to get {msg_message_id})
-3. `store_data` key:"giveaway:{msg_message_id}" value:{prize, host_id:{caller_id}, host_name:{caller_name}, winners, channel_id:{channel_id}}
+3. `put` key:"giveaway:{msg_message_id}" value:{prize, host_id:{caller_id}, host_name:{caller_name}, winners, channel_id:{channel_id}}
 4. `add_reaction` 🎉 to {msg_message_id}
 5. `timeout` name:"end_giveaway_{msg_message_id}" delay_seconds:"{math:duration * 60}" actions:[
    {type:"list_data", prefix:"giveaway_entry:{msg_message_id}:", name:"entries"},
@@ -33,8 +33,8 @@ The command steps:
 Event: `reaction_add` with condition `{emoji: "🎉"}`
 
 Actions:
-1. `store_data` key:"giveaway_entry:{message.id}:{user.id}" value:"{user.id}" if_not_exists:true
-2. `increment_data` key:"giveaway_count:{message.id}"
+1. `put` key:"giveaway_entry:{message.id}:{user.id}" value:"{user.id}" if_not_exists:true
+2. `increment` key:"giveaway_count:{message.id}"
 3. `edit_message` — update ONLY the Entries field: embed:{fields:[{name:"Entries", value:"{incremented_value}", inline:true}]}
 
 ## IMPORTANT — commands vs triggers
@@ -54,7 +54,7 @@ Example: `<t:{math:timestamp + duration * 60}:R>` computes the end time directly
 - **Always filter by emoji**: condition:{emoji:"🎉"}
 - **edit_message merges** — only specify fields you want to change
 - **{incremented_value}** only available after increment_data in the same chain
-- Use `store_data` with `if_not_exists:true` for entries to prevent double-counting
+- Use `put` with `if_not_exists:true` for entries to prevent double-counting
 - Duration option should default to 10 if not provided
 - **Auto-end**: `timeout` creates a one-time cron trigger that fires after the duration. delay_seconds accepts {math:duration * 60}.
 - The scheduled trigger uses actions (trigger actions, NOT executor tools) — list_data, send_message, edit_message

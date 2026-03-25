@@ -10,31 +10,31 @@ author: adraalabs
 ## Commands
 
 ### /balance
-Single tool: `get_data` key:"coins:{target_id}"
+Single tool: `get` key:"coins:{target_id}"
 Template: "**{target_name}** has **{value || 0}** coins"
 
 ### /pay
 Options: user (user, required), amount (integer, required)
 Steps:
-1. `increment_data` key:"coins:{caller_id}" amount:-"{amount}"
-2. `increment_data` key:"coins:{target_id}" amount:"{amount}" name:"recv"
+1. `increment` key:"coins:{caller_id}" amount:-"{amount}"
+2. `increment` key:"coins:{target_id}" amount:"{amount}" name:"recv"
 Template: "Sent **{amount}** coins to {target}. Your balance: **{value}**"
 
 ### /daily
 data_context: {last_claim:"daily:{caller_id}"}
 Steps:
-1. `store_data` key:"daily:{caller_id}" value:"{timestamp}" ttl_seconds:86400 if:"!last_claim"
-2. `increment_data` key:"coins:{caller_id}" amount:100 if:"!last_claim"
+1. `put` key:"daily:{caller_id}" value:"{timestamp}" ttl_seconds:86400 if:"!last_claim"
+2. `increment` key:"coins:{caller_id}" amount:100 if:"!last_claim"
 Template: uses conditional — already claimed or success message
 Cooldown: {seconds:5, per:"user"}
 
 ### /rich
-Single tool: `list_data` prefix:"coins:" sort:"desc" per_page:10 format:"ranked"
+Single tool: `list` prefix:"coins:" sort:"desc" per_page:10 format:"ranked"
 Embed: title:"Richest Members", description:"{entries}"
 
 ## Optional: earn coins per message
 
-Trigger on `message_create`: `increment_data` key:"coins:{user.id}" amount:1
+Trigger on `message_create`: `increment` key:"coins:{user.id}" amount:1
 
 ## Key rules
 

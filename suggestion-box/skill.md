@@ -12,16 +12,16 @@ author: adraalabs
 Options: suggestion (string, required)
 
 Steps:
-1. `increment_data` key:"suggestion_counter" name:"num"
+1. `increment` key:"suggestion_counter" name:"num"
 2. `send_message` to suggestions channel with:
    - embed: title:"Suggestion #{num_value}", description:"{suggestion}", footer:"By {caller_name}", color:"#FFA500"
    - buttons: [{id:"suggest_up_{num_value}", label:"0", emoji:"👍", style:"success"}, {id:"suggest_down_{num_value}", label:"0", emoji:"👎", style:"danger"}, {id:"suggest_status_{num_value}", label:"Pending", style:"secondary"}]
-3. `store_data` key:"suggestion:{num_value}" value with suggestion text, author_id, message_id, status:"pending"
+3. `put` key:"suggestion:{num_value}" value with suggestion text, author_id, message_id, status:"pending"
 
 ## Button handlers
 
 ### Upvote
-store_data key:"interaction:suggest_up_{num_value}" value:
+put key:"interaction:suggest_up_{num_value}" value:
 - unique_per_user: "Already voted!"
 - steps: [{tool:"increment_data", args:{key:"suggest_up:{num_value}"}}]
 - update_source: update the upvote button label with {incremented_value}
@@ -30,7 +30,7 @@ store_data key:"interaction:suggest_up_{num_value}" value:
 Same pattern with suggest_down_{num_value}
 
 ### Status (admin only)
-store_data key:"interaction:suggest_status_{num_value}" value:
+put key:"interaction:suggest_status_{num_value}" value:
 - required_permissions: ["ManageMessages"]
 - show_buttons with options: Approved (green), Denied (red), Implemented (blue)
 - update_source: change status button label and color

@@ -11,11 +11,11 @@ author: adraalabs
 
 ### /setbirthday
 Options: month (integer, 1-12), day (integer, 1-31)
-Tool: `store_data` key:"birthday:{caller_id}" value:"{month}-{day}"
+Tool: `put` key:"birthday:{caller_id}" value:"{month}-{day}"
 Template: "Birthday set to **{month}/{day}**!"
 
 ### /birthday
-Tool: `get_data` key:"birthday:{target_id}"
+Tool: `get` key:"birthday:{target_id}"
 Template: "**{target_name}**'s birthday is **{value || not set}**"
 
 ## Trigger: birthday_check
@@ -27,7 +27,7 @@ This is the tricky part — cron triggers can't iterate over all birthdays. Inst
 2. Store birthdays as "birthday:USERID" with value "MM-DD"
 3. The cron trigger action uses `http_fetch` to call the bot's own API or a simple script that queries birthdays matching today's date
 
-Alternative simpler approach: skip cron, let users manually check with `/birthdays-today` which does `list_data` prefix:"birthday:" and filters client-side.
+Alternative simpler approach: skip cron, let users manually check with `/birthdays-today` which does `list` prefix:"birthday:" and filters client-side.
 
 ## Key rules
 

@@ -19,7 +19,7 @@ Ask for: verified role (show_select type:"role"), verification channel (show_sel
 
 ## Step 2: Register button handler
 
-`store_data` key:"interaction:verify_member" value:
+`put` key:"interaction:verify_member" value:
 - tool: "assign_role"
 - args: {user_id:"{caller}", role_id:"VERIFIED_ROLE_ID"}
 - response: "You're verified! Welcome to the server."
@@ -43,4 +43,4 @@ Create a `cron` trigger that runs daily:
 - unique_per_user prevents clicking verify multiple times
 - For Telegram: use callback_query event instead of buttons
 - For CAPTCHA: randomize the question by using {random:1-10} + {random:1-10} and computing the expected answer
-- Consider adding a log: store_data key:"verified:{caller_id}" value:"{timestamp}"
+- Consider adding a log: put key:"verified:{caller_id}" value:"{timestamp}"

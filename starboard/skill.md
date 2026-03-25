@@ -16,7 +16,7 @@ Ask for: starboard channel (show_select type:"channel"), emoji (default ⭐), th
 Event: `reaction_add` with condition: {emoji:"⭐", min_reactions:3}
 
 Actions:
-1. `store_data` key:"starboard:{message.id}" value:"{reaction.count}"
+1. `put` key:"starboard:{message.id}" value:"{reaction.count}"
 2. `send_embed` to starboard channel: title:"⭐ {reaction.count}", description:"{message.content}", footer:"#{channel.name}", color:"#FFD700", author:{name:"{message.author.name}", icon_url:"{message.author.avatar}"}, buttons:[{id:"jump", label:"Jump to Message", style:"link", url:"{message.url}"}]
 
 ## Key rules

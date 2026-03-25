@@ -18,7 +18,7 @@ Event: `voice_join` with condition: {channel_id: "JOIN_TO_CREATE_CHANNEL_ID"}
 Actions:
 1. `create_temp_channel` name:"{user.name}'s Channel", user_id:"{user.id}", category_id:"CATEGORY_ID"
 2. `move_to_voice` user_id:"{user.id}", channel_id:"{created_channel_id}"
-3. `store_data` key:"temp_vc:{created_channel_id}" value:"{user.id}"
+3. `put` key:"temp_vc:{created_channel_id}" value:"{user.id}"
 
 ## Trigger: cleanup_empty
 
@@ -27,7 +27,7 @@ Event: `voice_leave`
 Actions:
 1. Check if the channel is a temp channel: look up `temp_vc:{voice_channel.id}`
 2. Check if channel is empty: {voice_channel.member_count} == 0
-3. If empty: `delete_channel` channel_id:"{voice_channel.id}", `delete_data` key:"temp_vc:{voice_channel.id}"
+3. If empty: `delete_channel` channel_id:"{voice_channel.id}", `delete` key:"temp_vc:{voice_channel.id}"
 
 ## Key rules
 

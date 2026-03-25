@@ -10,18 +10,18 @@ author: adraalabs
 ## Command: /highlight add
 
 Options: word (string, required)
-Tool: `store_data` key:"highlight:{caller_id}:{word}" value:"{word}"
+Tool: `put` key:"highlight:{caller_id}:{word}" value:"{word}"
 Template: "You'll be notified when someone says **{word}**"
 
 ## Command: /highlight remove
 
 Options: word (string, required)
-Tool: `delete_data` key:"highlight:{caller_id}:{word}"
+Tool: `delete` key:"highlight:{caller_id}:{word}"
 Template: "Removed highlight for **{word}**"
 
 ## Command: /highlight list
 
-Tool: `list_data` prefix:"highlight:{caller_id}:"
+Tool: `list` prefix:"highlight:{caller_id}:"
 Template: "Your highlights: {entries}"
 
 ## Trigger: highlight_check

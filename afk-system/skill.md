@@ -11,7 +11,7 @@ author: adraalabs
 
 Options: reason (string, default "AFK")
 Steps:
-1. `store_data` key:"afk:{caller_id}" value:{reason:"{reason}", since:"{timestamp}"}
+1. `put` key:"afk:{caller_id}" value:{reason:"{reason}", since:"{timestamp}"}
 2. Optionally set nickname: `set_nickname` user_id:"{caller_id}" nickname:"[AFK] {caller_name}"
 Template: "You're now AFK: {reason}"
 
@@ -20,7 +20,7 @@ Template: "You're now AFK: {reason}"
 Event: `message_create`
 
 Actions:
-1. Check if any mentioned user is AFK: for each mention in {message.mentions}, check `get_data` key:"afk:{mention_id}"
+1. Check if any mentioned user is AFK: for each mention in {message.mentions}, check `get` key:"afk:{mention_id}"
 2. If AFK: `send_message` reply: "{mentioned_user} is AFK: {reason} (since {since})"
 
 ## Trigger: afk_return
@@ -28,8 +28,8 @@ Actions:
 Event: `message_create`
 
 Actions:
-1. Check if message author is AFK: `get_data` key:"afk:{user.id}"
-2. If AFK: `delete_data` key:"afk:{user.id}", `send_message` "Welcome back {user}! You were AFK for X minutes"
+1. Check if message author is AFK: `get` key:"afk:{user.id}"
+2. If AFK: `delete` key:"afk:{user.id}", `send_message` "Welcome back {user}! You were AFK for X minutes"
 3. Optionally restore nickname: remove [AFK] prefix
 
 ## Key rules

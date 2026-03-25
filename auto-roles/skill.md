@@ -19,13 +19,13 @@ Ask which role with show_select(select_type:"role").
 1. `send_interactive` with embed listing available roles + buttons for each:
    buttons:[{id:"role_ROLEID1", label:"Gamer", emoji:"🎮"}, {id:"role_ROLEID2", label:"Artist", emoji:"🎨"}]
 
-2. For each button, `store_data` key:"interaction:role_ROLEID" value:{tool:"assign_role", args:{user_id:"{caller}", role_id:"ROLEID"}, response:"Role assigned!"}
+2. For each button, `put` key:"interaction:role_ROLEID" value:{tool:"assign_role", args:{user_id:"{caller}", role_id:"ROLEID"}, response:"Role assigned!"}
 
 ## Option C: Select menu roles
 
 1. `send_interactive` with select_menu:{id:"role_picker", placeholder:"Pick your roles", options:[{label:"Gamer", value:"role_ROLEID1", emoji:"🎮"}, {label:"Artist", value:"role_ROLEID2", emoji:"🎨"}]}
 
-2. For each option value, `store_data` key:"interaction:role_ROLEID" value:{tool:"assign_role", args:{user_id:"{caller}", role_id:"ROLEID"}, response:"{caller} got the role!"}
+2. For each option value, `put` key:"interaction:role_ROLEID" value:{tool:"assign_role", args:{user_id:"{caller}", role_id:"ROLEID"}, response:"{caller} got the role!"}
 
 ## Key rules
 

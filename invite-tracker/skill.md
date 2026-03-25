@@ -16,17 +16,17 @@ The bot auto-detects which invite was used on member_join by diffing invite use 
 Event: `member_join`
 
 Actions:
-1. `increment_data` key:"invites:{inviter.id}" amount:1
+1. `increment` key:"invites:{inviter.id}" amount:1
 2. `send_message` to welcome/log channel: "{user} joined! Invited by {inviter}"
 
 ## Commands
 
 ### /invites
-Single tool: `get_data` key:"invites:{target_id}"
+Single tool: `get` key:"invites:{target_id}"
 Template: "**{target_name}** has **{value || 0}** invites"
 
 ### /top-inviters
-Single tool: `list_data` prefix:"invites:" sort:"desc" per_page:10 format:"ranked"
+Single tool: `list` prefix:"invites:" sort:"desc" per_page:10 format:"ranked"
 Embed: title:"Top Inviters", description:"{entries}"
 
 ## Key rules

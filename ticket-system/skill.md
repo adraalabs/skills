@@ -19,7 +19,7 @@ Use `send_interactive` to the support channel with:
 
 ## Step 2: Register button handler
 
-`store_data` key:"interaction:create_ticket" value:
+`put` key:"interaction:create_ticket" value:
 - modal: {title:"Create Ticket", fields:[{id:"issue", label:"Describe your issue", style:"paragraph", placeholder:"What do you need help with?"}]}
 - steps: [{tool:"create_private_channel", args:{name:"ticket-{caller_id}", user_id:"{caller}", category_id:"CATEGORY_ID"}, name:"ch"}, {tool:"send_message", args:{channel_id:"{ch_channel_id}", embed:{title:"Ticket", description:"**Issue:**\n{issue}\n\nA staff member will help you soon.", color:"#5865F2"}, buttons:[{id:"close_ticket_{ch_channel_id}", label:"Close Ticket", style:"danger"}]}}]
 - response: "Ticket created! Check <#{ch_channel_id}>"
@@ -27,7 +27,7 @@ Use `send_interactive` to the support channel with:
 
 ## Step 3: Close button handler
 
-`store_data` key:"interaction:close_ticket_{ch_channel_id}" value:
+`put` key:"interaction:close_ticket_{ch_channel_id}" value:
 - tool:"delete_channel", args:{channel_id:"{ch_channel_id}"}
 - response:"Ticket closed."
 

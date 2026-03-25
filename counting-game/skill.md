@@ -10,7 +10,7 @@ author: adraalabs
 ## Setup
 
 Ask for counting channel with show_select(type:"channel"). Then:
-1. `store_data` key:"counting_next" value:1
+1. `put` key:"counting_next" value:1
 2. Create the trigger below
 
 ## Trigger: counting
@@ -19,12 +19,12 @@ Event: `message_create`
 Condition: {channel_id:"CHANNEL_ID", content_is_number:true, not_bot:true}
 
 Actions:
-1. `get_data` key:"counting_next" name:"expected"
-2. `check` key:"message.content" operator:"==" value:"{expected_value}" else:[{type:"delete_message"}, {type:"send_message", message:"{user} wrong! Expected **{expected_value}**. Back to 1!", self_destruct:5}, {type:"store_data", key:"counting_next", value:1}, {type:"store_data", key:"counting_last_user", value:""}]
-3. `get_data` key:"counting_last_user" name:"last"
-4. `check` key:"user.id" operator:"!=" value:"{last_value}" else:[{type:"delete_message"}, {type:"send_message", message:"{user} you can't count twice in a row!", self_destruct:5}]
-5. `increment_data` key:"counting_next" amount:1
-6. `store_data` key:"counting_last_user" value:"{user.id}"
+1. `get` key:"counting_next" name:"expected"
+2. `check` key:"message.content" operator:"==" value:"{expected_value}" else:[{type:"delete_message"}, {type:"send_message", message:"{user} wrong! Expected **{expected_value}**. Back to 1!", auto_delete:5}, {type:"store_data", key:"counting_next", value:1}, {type:"store_data", key:"counting_last_user", value:""}]
+3. `get` key:"counting_last_user" name:"last"
+4. `check` key:"user.id" operator:"!=" value:"{last_value}" else:[{type:"delete_message"}, {type:"send_message", message:"{user} you can't count twice in a row!", auto_delete:5}]
+5. `increment` key:"counting_next" amount:1
+6. `put` key:"counting_last_user" value:"{user.id}"
 7. `add_reaction` emoji:"✅"
 
 ## Behavior (like Countr bot)
