@@ -215,7 +215,7 @@
     "platforms": [
       "discord"
     ],
-    "version": 1,
+    "version": 2,
     "author": "adraalabs",
     "path": "starboard/skill.md"
   },
