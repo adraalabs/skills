@@ -112,7 +112,7 @@
       "discord",
       "telegram"
     ],
-    "version": 6,
+    "version": 7,
     "author": "adraalabs",
     "path": "giveaway/skill.md"
   },
@@ -146,7 +146,7 @@
       "discord",
       "telegram"
     ],
-    "version": 2,
+    "version": 3,
     "author": "adraalabs",
     "path": "leveling/skill.md"
   },
@@ -215,7 +215,7 @@
     "platforms": [
       "discord"
     ],
-    "version": 2,
+    "version": 3,
     "author": "adraalabs",
     "path": "starboard/skill.md"
   },
@@ -238,7 +238,7 @@
     "platforms": [
       "discord"
     ],
-    "version": 1,
+    "version": 3,
     "author": "adraalabs",
     "path": "temp-voice/skill.md"
   },
@@ -274,7 +274,7 @@
       "discord",
       "telegram"
     ],
-    "version": 2,
+    "version": 3,
     "author": "adraalabs",
     "path": "welcome/skill.md"
   },
