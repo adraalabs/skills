@@ -2,7 +2,7 @@
 name: leveling
 description: XP per message, levels, rank cards with image, and leaderboard. Use when asked for leveling, XP, ranking, or experience system.
 category: engagement
-version: 2
+version: 3
 platforms: [discord, telegram]
 author: adraalabs
 ---
@@ -11,7 +11,7 @@ author: adraalabs
 
 Event: `message_create`
 
-Action: `increment` key:"xp:{user.id}" amount:1
+Action: `{id:"xp", type:"increment_data", key:"xp:{user.id}", amount:1}`
 
 Only add cooldown if user asks for anti-spam.
 
@@ -31,9 +31,8 @@ Steps:
 
 ## Key rules
 
+- Every trigger action has an id — pipe with {id.field}
+- {xp.incremented_value} available after increment_data
 - Level = {math:floor(value/100)} — every 100 XP = 1 level
-- Progress = {math:value % 100} out of 100
-- template:" " required when render_image is the reply
-- No emoji in render_image text
-- user_id auto-fills avatar and display name
+- render_image in commands generates image attached to reply
 - Data key: "xp:{user.id}" in triggers, "xp:{target_id}" in commands
